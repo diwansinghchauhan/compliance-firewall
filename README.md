@@ -1,16 +1,103 @@
-# React + Vite
+# Compliance Firewall
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive compliance and integration management platform built with React and Vite. This application provides real-time monitoring, conflict resolution, and centralized management of multi-channel compliance operations.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Audit Vault** - Secure audit log management and compliance tracking
+- **Command Center** - Centralized dashboard for system monitoring and control
+- **Conflict Resolution** - Intelligent conflict detection and resolution workflows
+- **Integrations Hub** - Unified management of multiple integration channels
+- **Multi-Channel Support**:
+  - Call Center Integration
+  - CRM Synchronization
+  - SMS Gateway Management
+  - Social Media Integration
+  - Web Scanner
+  - Omnichannel Management
+- **Live Sync** - Real-time data synchronization across platforms (Codex Live Sync)
+- **Remediation Tools** - Automated remediation workflows and response handling
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend Framework**: React 19.2.6
+- **Build Tool**: Vite 8.0.12
+- **Charting**: Recharts 3.8.1
+- **UI Icons**: Lucide React 1.20.0
+- **Linting**: ESLint with React plugins
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/diwansinghchauhan/compliance-firewall.git
+cd compliance-firewall
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+### Development
+
+Start the development server with hot module replacement:
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+### Build
+
+Create an optimized production build:
+```bash
+npm run build
+```
+
+### Preview
+
+Preview the production build locally:
+```bash
+npm run preview
+```
+
+### Linting
+
+Run ESLint to check code quality:
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```
+src/
+├── views/              # Main application views
+│   ├── AuditVault.jsx
+│   ├── CallCenterDetail.jsx
+│   ├── CodexLiveSync.jsx
+│   ├── CommandCenter.jsx
+│   ├── ConflictResolution.jsx
+│   ├── CrmSyncDetail.jsx
+│   ├── IntegrationsHub.jsx
+│   ├── OmnichannelDetail.jsx
+│   ├── Remediation.jsx
+│   ├── SmsGatewayDetail.jsx
+│   ├── SocialMediaDetail.jsx
+│   └── WebScannerDetail.jsx
+├── App.jsx            # Main application component
+├── main.jsx           # Application entry point
+└── index.css          # Global styles
+```
+
+## License
+
+This project is proprietary and confidential.
