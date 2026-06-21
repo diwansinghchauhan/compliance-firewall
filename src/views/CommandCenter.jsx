@@ -6,7 +6,7 @@ import {
 import {
   TrendingUp, Shield, AlertOctagon, FileSearch,
   ChevronUp, ChevronDown, ChevronsUpDown, Activity,
-  Zap, Eye, Database
+  Zap, Eye, Database, Info
 } from 'lucide-react';
 
 /* ---- Data ---- */
@@ -38,6 +38,13 @@ const CLEARANCE_DATA = [
 const DETECTION_DATA = [
   { name: 'AI Reasoning', value: 73, color: '#3B82F6' },
   { name: 'Manual Rules', value: 27, color: '#8B5CF6' },
+];
+
+const AGENCY_BREACHES_DATA = [
+  { name: 'FCCPC', value: 142, color: '#059669' },
+  { name: 'CBN', value: 89, color: '#1A56DB' },
+  { name: 'NDPC', value: 34, color: '#D97706' },
+  { name: 'SEC', value: 12, color: '#7E22CE' },
 ];
 
 const PIPELINE_DATA = [
@@ -206,9 +213,12 @@ export default function CommandCenter() {
       <div className="metrics-row">
         {/* Risk Score */}
         <div className="metric-card risk">
-          <div className="metric-label">
+          <div className="metric-label" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <Shield size={12} />
             Institutional Risk Score
+            <span title="Aggregate compliance health index based on real-time violation frequency, systemic anomalies, and unresolved legal conflicts.">
+              <Info size={12} style={{ color: '#9CA3AF', cursor: 'help' }} />
+            </span>
           </div>
           <div className="metric-value blue">92<span style={{ fontSize: 18, fontWeight: 500, color: '#9CA3AF' }}>/100</span></div>
           <div className="metric-sub">
@@ -393,6 +403,41 @@ export default function CommandCenter() {
             </div>
           </div>
         </div>
+        </div>
+      </div>
+
+      {/* Agency Breaches Row */}
+      <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
+        <div className="card" style={{ flex: 1 }}>
+          <div className="card-header">
+            <span className="card-title" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Shield size={12} style={{ color: '#6B7280' }} />
+              Interdictions by Agency (Last 30 Days)
+              <span title="Breakdown of automated compliance blocks triggered by specific regulatory rulesets (e.g., a blocked SMS triggering an FCCPC flag).">
+                <Info size={12} style={{ color: '#9CA3AF', cursor: 'help' }} />
+              </span>
+            </span>
+          </div>
+          <div className="card-body" style={{ padding: '16px 24px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
+              {AGENCY_BREACHES_DATA.map(agency => {
+                const totalBreaches = AGENCY_BREACHES_DATA.reduce((acc, curr) => acc + curr.value, 0);
+                const pct = Math.round((agency.value / totalBreaches) * 100);
+                return (
+                  <div key={agency.name} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{ width: '48px', fontSize: '13px', fontWeight: 600, color: '#4B5563' }}>{agency.name}</div>
+                    <div style={{ flex: 1, background: '#F3F4F6', height: '8px', borderRadius: '4px', overflow: 'hidden' }}>
+                      <div style={{ width: `${pct}%`, background: agency.color, height: '100%' }} />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', width: '36px' }}>
+                      <span style={{ fontSize: '13px', fontWeight: 700, color: '#111827' }}>{agency.value}</span>
+                      <span style={{ fontSize: '10px', color: '#6B7280', fontWeight: 500 }}>{pct}%</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
 
