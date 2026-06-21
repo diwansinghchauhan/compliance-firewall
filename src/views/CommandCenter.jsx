@@ -262,12 +262,10 @@ export default function CommandCenter() {
         {/* Line chart */}
         <div className="card" style={{ flex: 2 }}>
           <div className="card-header">
-            <span className="card-title" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Activity size={12} style={{ color: '#6B7280' }} />
-              Consumer Complaint Trajectory
-              <span style={{ fontSize: '10px', background: '#FEF2F2', color: '#DC2626', padding: '2px 6px', borderRadius: '4px', fontWeight: 700, border: '1px solid #FCA5A5' }}>
-                ⚠ Systemic Anomaly Detected
-              </span>
+            <span className="card-title" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Activity size={12} style={{ color: '#DC2626' }} />
+              <span style={{ color: '#DC2626', fontWeight: 700 }}>Anomaly Detected</span>
+              <span style={{ color: '#6B7280', fontWeight: 400 }}>— 30 Day Trend</span>
             </span>
             <div className="status-indicator">
               <div className="status-dot live" />
